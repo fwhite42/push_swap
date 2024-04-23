@@ -1,6 +1,8 @@
 #include"libarr.h"
 #include"libft.h"
 
+// Like arr_copy, but returns only the data. The consumer of the returned buff
+// needs to know the arr_length to correctly read the buff.
 void	**arr_copy_data(void *self)
 {
 	void	**data;

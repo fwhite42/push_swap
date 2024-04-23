@@ -5,7 +5,7 @@ test/%: test/%.c $(LIBRARY_FILES)
 	@echo
 	@echo .................................................... TEST START
 	@echo
-	@$@
+	$@ $(subst :, ,$(ARGS))
 	@$(RM) $@ > /dev/null
 	@echo
 	@echo .................................................... TEST END

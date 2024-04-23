@@ -6,12 +6,7 @@ typedef enum e_stack_id
 	a,
 	b,
 	solution,
-	metadata,
 }	t_stack_id;
-
-// Getters
-void	**game_stack(void *self);
-void	*game_solution(void *self);
 
 // List of push swap opcodes, plus "null" (which is means "no operation")
 typedef enum e_opcodes
@@ -30,20 +25,30 @@ typedef enum e_opcodes
 	rrr,
 }	t_opcodes;
 
+// Definition
+typedef void *t_game[3];
+
 // Constructor
 void	*game_create(void);
+void	*game_copy(void *self, int include_solution);
+
+// Parse Input Arguments
+int	game_init(void *self, int ac, char **av);
+
+// Getters
+void	*game_stack(void *self, int id);
+int	game_read_at(void *self, int target, int index);
+
+// Setters
+void	game_bind_stack(void *self, int id, void *stack);
 
 // Deconstructor
 int	game_destroy(void *self);
 
 // Printer
-int	game_print(void **self);
+int	game_print(void *self);
 
 // Executes a command
-int	game_execute(void **self, int opcode);
+void	game_execute(void *self, int opcode);
 
-int	game_init(void **self, int ac, char **av);
-
-// ??
-void	game_split_stack(void **self, int target, int flag);
 #endif

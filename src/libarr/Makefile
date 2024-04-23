@@ -12,31 +12,61 @@ define SETTERS
 	set_stepsize:int
 endef
 
-define METHODS
+define	CONSTRUCTORS
 	create_null
 	create
 	create_default
 	copy
-	destroy
+endef
+
+define	ITERATORS
+	foreach
+	zip
+	zip_int
+	morph
+endef
+
+define	ACCESSORS
+	write_at
+	read_at
+	read_int_at
+endef
+
+define	MEMORY_MANAGMENT
 	increase_max_size
 	skim
-	print
-	printf
-	read_at
-	pop
-	write_at
-	push
-	foreach
-	reduce
-	morph
-	copy_data
-	strchr
-	sort
-	rotate
+endef
+
+define	PUSHSWAP
 	swap
 	rev_rotate
+	rotate
+endef
+
+define INTEGERS
+	sort
+endef
+
+define PRINTERS
+	print
+	printf
+endef
+
+define METHODS
+	$(CONSTRUCTORS)
+	$(ITERATORS)
+	$(ACCESSORS)
+	$(MEMORY_MANAGMENT)
+	$(PUSHSWAP)
+	$(INTEGERS)
+	$(PRINTERS)
+	destroy
+	pop
+	push
+	push_int
+	copy_data
+	strchr
 	reverse
-	median
 endef
 
 include ../Makefile

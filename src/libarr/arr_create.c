@@ -3,6 +3,7 @@
 #include"libarr.h"
 #include"libftprintf.h"
 
+// Creates an arr with given stepsize and maxsize.
 void	*arr_create(int stepsize, int maxsize)
 {
 	void	*self;

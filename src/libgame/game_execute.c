@@ -58,8 +58,11 @@ static int	game_execute_swap(void **self, int cmd)
 }
 
 //5
-int	game_execute(void **self, int cmd)
+void	game_execute(void *game, int cmd)
 {
+	void	**self;
+
+	self = (void **) game;
 	if (cmd == rra || cmd == rrb || cmd == rrr)
 		game_execute_rev_rotation(self, cmd);
 	else if (cmd == ra || cmd == rb || cmd == rr)
@@ -69,5 +72,4 @@ int	game_execute(void **self, int cmd)
 	else if (cmd == pa || cmd == pb)
 		game_execute_push(self, cmd);
 	arr_push(self[solution], (void *)((intptr_t) cmd));
-	return (0);
 }

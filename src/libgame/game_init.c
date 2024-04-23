@@ -1,6 +1,7 @@
 #include"libgame.h"
 #include"libarr.h"
 #include"libft.h"
+#include"libftprintf.h"
 
 static inline void *parse(char *data)
 {
@@ -10,13 +11,13 @@ static inline void *parse(char *data)
 	return ((void *)nbr);
 }
 
-int	game_init(void **self, int ac, char **av)
+int	game_init(void *self, int ac, char **av)
 {
 	int	i;
 
 	i = 1;
 	while (i < ac)
-		arr_push(self[a], av[ac - i++]);
-	arr_morph(self[a], parse, NULL);
+		arr_push(game_stack(self, a), av[ac - (i++)]);
+	arr_morph(game_stack(self, a), parse, NULL);
 	return (0);
 }

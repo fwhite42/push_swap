@@ -1,5 +1,6 @@
 #include"libarr.h"
 
+// Creates a skimmed ccopy of self.
 void	*arr_copy(void *self)
 {
 	int	i;

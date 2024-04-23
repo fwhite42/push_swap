@@ -37,9 +37,25 @@ void	arr_printf(void *self, char *flags);
 void	*arr_read_at(void *self, int index);
 void	*arr_pop(void *self);
 
-//Write Operations
+void	*arr_bottom(void *self, int index);
+void	*arr_top(void *self, int index);
+int	arr_has(void *self, void *item);
+
+// Write Operations
 bool	arr_write_at(void *self, int index, void *item);
 bool	arr_push(void *self, void *item);
+
+// Math
+bool	arr_push_int(void *self, int data);
+//bool	arr_write_int(void *self, int data);
+//int	arr_pop_int(void *self);
+int	arr_read_int_at(void *self, int index);
+void	*arr_zip(void *self, void *target, void *(*zip)());
+void	*arr_zip_int(void *self, void *target, int (*zip)());
+//int	arr_sum(void *self);
+//int	arr_avg(void *self)
+//int	arr_min_index(void *self);
+//int	arr_max_index(void *self);
 
 //Getters
 int	arr_length(void *self);
@@ -57,14 +73,19 @@ void	arr_set_maxsize(void *self, int maxsize);
 void	arr_foreach(void *self, void (*fn)(), void *caller);
 void	arr_morph(void *self, void *(*fn)(), void *caller);
 void	arr_reduce(void *self, void *(*fn)(), void *memory);
+
+// String Operations
 void	arr_strchr(void *self, char *string, char search);
-void	arr_sort(void *self);
+
+// Push Swap Operations
 void	arr_swap(void *self);
-void	arr_rev_rotate(void *self);
 void	arr_rotate(void *self);
+void	arr_rev_rotate(void *self);
+
+// Permutations
 void	arr_reverse(void *self);
+void	arr_sort(void *self);
 #include<stdint.h>
-intptr_t	arr_median(void *self);
 //Misc
 void	**arr_copy_data(void *self);
 #endif

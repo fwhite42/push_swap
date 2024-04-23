@@ -10,6 +10,7 @@ define RARIES
 	test
 	arr
 	game
+	solver
 endef
 
 define REQ_TEST
