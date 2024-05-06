@@ -58,7 +58,7 @@ static int	game_execute_swap(void **self, int cmd)
 }
 
 //5
-void	game_execute(void *game, int cmd)
+void	game_execute(void *game, t_opcode cmd)
 {
 	void	**self;
 

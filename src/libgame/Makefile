@@ -5,6 +5,7 @@ define METHODS
 	stack
 	bind_stack
 	print
+	print_cmd
 	init
 	execute
 	read_at

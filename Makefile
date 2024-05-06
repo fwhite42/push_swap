@@ -10,6 +10,7 @@ define RARIES
 	test
 	arr
 	game
+	elevator
 	solver
 endef
 

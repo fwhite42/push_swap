@@ -10,15 +10,10 @@ int	main(int ac, char **av)
 	
 	self = game_create();
 	game_init(self, ac, av);
-	solver_split_stack(self);
-	solver_split_stack(self);
-	solver_split_stack(self);
-	solver_split_stack(self);
-	solver_split_stack(self);
-	solver_split_stack2(self);
-	solver_split_stack2(self);
-	solver_split_stack2(self);
-	solver_split_stack2(self);
+	solver_generate_stack_b(self, 0);
+	solver_solve3(self);
+	solver_reinsert_stack_b(self, 0);
+	solver_final_rotate(self);
 	game_print(self);
 	game_destroy(self);
 	return (0);

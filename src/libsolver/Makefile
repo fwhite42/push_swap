@@ -1,7 +1,10 @@
 define METHODS
+	find_twin_index
+	reinsert_stack_b
+	generate_stack_b
 	compute_median
-	split_stack
-	split_stack2
+	final_rotate
+	solve3
 endef
 
 include ../Makefile

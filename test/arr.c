@@ -80,10 +80,27 @@ int	test3(void)
 	return (0);
 }
 
+int	test4(void)
+{
+	void	*arr;
+
+	arr = arr_create_default();
+	arr_push_int(arr, 184);
+	if (arr_read_int_at(arr, -1) != 184)
+		return (1);
+	arr_push_int(arr, 69420);
+	if (arr_read_int_at(arr, -1) !=  69420)
+		return (2);
+	arr_print(arr);
+	arr_destroy(arr, NULL, NULL);
+	return (0);
+}
+
 int	main(void)
 {
 	test_run(1, test1);
 	test_run(2, test2);
 	test_run(3, test3);
+	test_run(4, test4);
 	return (0);
 }

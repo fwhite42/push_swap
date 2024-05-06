@@ -45,7 +45,6 @@ endef
 
 define INTEGERS
 	sort
-	int_max
 endef
 
 define PRINTERS

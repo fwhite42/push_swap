@@ -11,13 +11,11 @@ static inline void *parse(char *data)
 	return ((void *)nbr);
 }
 
-int	game_init(void *self, int ac, char **av)
+void	game_init(void *self, int ac, char **av)
 {
 	int	i;
 
 	i = 1;
 	while (i < ac)
-		arr_push(game_stack(self, a), av[ac - (i++)]);
-	arr_morph(game_stack(self, a), parse, NULL);
-	return (0);
+		arr_push_int(game_stack(self, a), ft_atoi(av[ac - (i++)]));
 }

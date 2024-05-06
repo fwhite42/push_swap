@@ -1,15 +1,28 @@
 #ifndef LIBGAME_H
 # define LIBGAME_H
 
-typedef enum e_stack_id
-{
-	a,
-	b,
-	solution,
-}	t_stack_id;
+// Types
+typedef void 		*t_game[3];
+typedef	enum e_opcode	t_opcode;
+typedef enum e_stack_id	t_stack_id;
 
-// List of push swap opcodes, plus "null" (which is means "no operation")
-typedef enum e_opcodes
+// Methods
+void	*game_create(void);
+void	*game_copy(void *self, int include_solution);
+
+void	*game_stack(void *self, int id);
+int	game_read_at(void *self, int target, int index);
+
+void	game_bind_stack(void *self, int id, void *stack);
+void	game_init(void *self, int ac, char **av);
+void	game_destroy(void *self);
+void	game_print(void *self);
+void	game_print_cmd(int cmd);
+void	game_printf(void *self, char *flags);
+void	game_execute(void *self, t_opcode opcode);
+
+// Enums
+enum e_opcode
 {
 	null,
 	sa,
@@ -23,32 +36,12 @@ typedef enum e_opcodes
 	rra,
 	rrb,
 	rrr,
-}	t_opcodes;
+};
 
-// Definition
-typedef void *t_game[3];
-
-// Constructor
-void	*game_create(void);
-void	*game_copy(void *self, int include_solution);
-
-// Parse Input Arguments
-int	game_init(void *self, int ac, char **av);
-
-// Getters
-void	*game_stack(void *self, int id);
-int	game_read_at(void *self, int target, int index);
-
-// Setters
-void	game_bind_stack(void *self, int id, void *stack);
-
-// Deconstructor
-int	game_destroy(void *self);
-
-// Printer
-int	game_print(void *self);
-
-// Executes a command
-void	game_execute(void *self, int opcode);
-
+enum e_stack_id
+{
+	a,
+	b,
+	solution,
+};
 #endif

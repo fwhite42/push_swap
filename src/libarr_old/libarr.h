@@ -11,10 +11,40 @@
 # include<stdbool.h>
 
 //Struct
+typedef union u__data
+{
+	int	nbr;
+	char	*str;
+	int	*tab;
+	void	*ptr;
+}	t__data;
+
+typedef union u_data
+{
+	int	nbr;
+	char	*str;
+	int	*tab;
+	void	*ptr;
+	t__data	*(fn)();
+}	t_data;
+
+
+
+t_data	*data(void *self)
+{}
+
+///////////////////////////////////
+typedef union u_any
+{
+	int	nbr;
+	void	*ptr;
+}	t_any
+
+//any->ptr
 
 typedef struct s_arr
 {
-	void	*data;
+	t_data	*data;
 	int	length;
 	int	maxsize;
 	int	stepsize;
@@ -85,8 +115,7 @@ void	arr_strchr(void *self, char *string, char search);
 void	arr_swap(void *self);
 void	arr_rotate(void *self);
 void	arr_rev_rotate(void *self);
-int	arr_int_max(void *self);
-int	arr_int_min(void *self);
+
 // Permutations
 void	arr_reverse(void *self);
 void	arr_sort(void *self);
