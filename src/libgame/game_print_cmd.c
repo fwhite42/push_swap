@@ -10,6 +10,7 @@ static int	print_push(int cmd)
 		ft_printf("pb");
 	else
 		return (0);
+	ft_printf("\n");
 	return (1);
 }
 
@@ -23,6 +24,7 @@ static int	print_swap(int cmd)
 		ft_printf("ss");
 	else
 		return (0);
+	ft_printf("\n");
 	return (1);
 }
 
@@ -42,6 +44,7 @@ static int	print_rotate(int cmd)
 		ft_printf("rrr");
 	else
 		return (0);
+	ft_printf("\n");
 	return (1);
 }
 

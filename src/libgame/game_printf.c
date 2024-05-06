@@ -1,12 +1,26 @@
 #include"libgame.h"
-#include"libprintf.h"
+#include"libarr.h"
+#include"libftprintf.h"
+#include"libft.h"
 
-int	game_print(void	**self)
+void	game_printf(void	*self, char *flags)
 {
-	ft_printf("[Stack A] : ");
-	arr_print(self[a]);
-	ft_printf("[Stack B] : ");
-	arr_print(self[b]);
-	ft_printf("[Cmd Lst] : ");
-	arr_printf(self[solution])
+	int	i;
+
+	if (ft_strchr(flags, 'a'))
+	{
+		ft_printf("[Stack A] : ");
+		arr_print(game_stack(self, a));
+	}
+	if (ft_strchr(flags, 'b'))
+	{
+		ft_printf("[Stack B] : ");
+		arr_print(game_stack(self, b));
+	}
+	if (ft_strchr(flags, 's'))
+	{
+		i = 0;
+		while (i < arr_length(game_stack(self, solution)))
+			game_print_cmd(game_read_at(self, solution, i++));
+	}
 }

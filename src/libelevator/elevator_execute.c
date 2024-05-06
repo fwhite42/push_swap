@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 17:59:46 by fwhite42          #+#    #+#             */
-/*   Updated: 2024/05/06 08:42:12 by fwhite42         ###   ########.fr       */
+/*   Updated: 2024/05/06 13:23:23 by fwhite42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	elevator_execute(void *self, void *game)
 {
 	t_elevator	*this;
 
-	ft_printf("I-m trying to execute ");
-	elevator_print(self);
 	this = self;
 	_execute(rr, rrr, this->r, game);
 	_execute(ra, rra, this->a, game);

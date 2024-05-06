@@ -5,6 +5,7 @@ define METHODS
 	stack
 	bind_stack
 	print
+	printf
 	print_cmd
 	init
 	execute

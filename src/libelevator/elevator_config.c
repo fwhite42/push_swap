@@ -14,5 +14,4 @@ void	elevator_config(void *self, int type, int x, int y)
 		*this = (t_elevator) {-(y + 1), -(x - y), 0};
 	else
 		error_fatal("Invalid elevator type", 0);
-	elevator_print(this);
 }

@@ -12,7 +12,6 @@ void	elevator_config_cheapest(void *self, t_elevator_ccinput input)
 
 	if (self == 0)
 		return ;
-	ft_printf("Computing best elevator for (%i, %i)\n", input.x, input.y);
 	elevator_config(self, 0, input.x, input.y);
 	elevator_minimize_weight(self, input.len_a, input.len_b);
 	while (cursor_type < 3)

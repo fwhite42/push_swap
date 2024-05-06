@@ -14,7 +14,7 @@ int	main(int ac, char **av)
 	solver_solve3(self);
 	solver_reinsert_stack_b(self, 0);
 	solver_final_rotate(self);
-	game_print(self);
+	game_printf(self, "s");
 	game_destroy(self);
 	return (0);
 }
