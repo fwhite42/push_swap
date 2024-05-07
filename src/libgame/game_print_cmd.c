@@ -38,9 +38,9 @@ static int	print_rotate(int cmd)
 		ft_printf("rr");
 	else if (cmd == rra)
 		ft_printf("rra");
-	else if (cmd == rb)
+	else if (cmd == rrb)
 		ft_printf("rrb");
-	else if (cmd == rr)
+	else if (cmd == rrr)
 		ft_printf("rrr");
 	else
 		return (0);
