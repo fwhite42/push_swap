@@ -6,20 +6,16 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/11 16:18:25 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/11 18:48:11 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/11 20:19:28 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"liberror.h"
 #include"libgame.h"
-#include"libftprintf.h"
-#include"libarr.h"
 #include"libsolver.h"
-#include<stddef.h>
 
 int	main(int ac, char **av)
 {
-	void	**self;
+	void	*self;
 
 	self = game_create();
 	game_init(self, ac, av);
