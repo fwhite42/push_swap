@@ -1,73 +1,90 @@
-define GETTERS
-	data:void**
-	length:int
-	maxsize:int
-	stepsize:int
-endef
+# Fields
+#
+#GETTERS				:=	\
+#	data:void**			\
+#	length:int			\
+#	maxsize:int			\
+#	stepsize:int
 
-define SETTERS
-	bind_data:void**
-	set_length:int
-	set_maxsize:int
-	set_stepsize:int
-endef
+#SETTERS				:=	\
+#	bind_data:void**	\
+#	set_length:int		\
+#	set_maxsize:int		\
+#	set_stepsize:int
 
-define	CONSTRUCTORS
-	create_null
-	create
-	create_default
+xGETTERS				:=	\
+	data				\
+	length				\
+	maxsize				\
+	stepsize
+
+xSETTERS				:=	\
+	bind_data			\
+	set_length			\
+	set_maxsize			\
+	set_stepsize
+
+
+# Methods
+CONSTRUCTORS		:=	\
+	create_null			\
+	create				\
+	create_default		\
 	copy
-endef
 
-define	ITERATORS
-	foreach
-	zip
-	zip_int
+ITERATORS			:=	\
+	foreach				\
+	zip					\
+	zip_int				\
 	morph
-endef
 
-define	ACCESSORS
-	write_at
-	read_at
+ACCESSORS			:=	\
+	write_at			\
+	read_at				\
 	read_int_at
-endef
 
-define	MEMORY_MANAGMENT
-	increase_max_size
+MEMORY_MANAGMENT	:=	\
+	increase_max_size	\
 	skim
-endef
 
-define	PUSHSWAP
-	swap
-	rev_rotate
+PUSHSWAP			:=	\
+	swap				\
+	rev_rotate			\
 	rotate
-endef
 
-define INTEGERS
-	sort
+INTEGERS			:=	\
+	sort				\
 	int_max
-endef
 
-define PRINTERS
-	print
-	printf
-endef
+PRINTERS			:=	\
+	print				\
+	printf				
 
-define METHODS
-	$(CONSTRUCTORS)
-	$(ITERATORS)
-	$(ACCESSORS)
-	$(MEMORY_MANAGMENT)
-	$(PUSHSWAP)
-	$(INTEGERS)
-	$(PRINTERS)
+CLEANERS			:=	\
 	destroy
-	pop
-	push
-	push_int
+
+STRINGS				:=	\
+	strchr				\
+	reverse				\
 	copy_data
-	strchr
-	reverse
-endef
+
+STDOP				:=	\
+	push				\
+	push_int			\
+	pop
+
+METHODS				:=	\
+	$(xGETTERS)			\
+	$(xSETTERS)			\
+	$(CONSTRUCTORS)		\
+	$(ITERATORS)		\
+	$(ACCESSORS)		\
+	$(MEMORY_MANAGMENT)	\
+	$(PUSHSWAP)			\
+	$(INTEGERS)			\
+	$(PRINTERS)			\
+	$(CLEANERS)			\
+	$(STDOP)			\
+	$(STRINGS)
 
 include ../Makefile

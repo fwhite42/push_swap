@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   solver_solve3.c                                         4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/11 04:14:57 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/11 04:27:58 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libgame.h"
 #include"libarr.h"
 #include"liberror.h"
@@ -27,7 +39,7 @@ static void	sort_top(void *game, t_stack_id id)
 
 void	solver_solve3(void *game)
 {
-	if (arr_length(game_stack(game, a)) == 3)	
+	if (arr_length(game_stack(game, a)) == 3)
 		put_three_at_bottom(game);
 	if (arr_length(game_stack(game, a)) >= 2)
 		sort_top(game, a);

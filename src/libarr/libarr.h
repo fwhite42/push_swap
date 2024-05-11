@@ -1,23 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   libarr.h                                                4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/11 16:19:27 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/11 16:20:05 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBARR_H
 # define LIBARR_H
 
-# define ARR_SAFE_MAX_LENGTH	2 >> 16
 # define ARR_DEFAULT_STEPSIZE	1
 # define ARR_DEFAULT_MAXSIZE	0
 
-
-
-
+// TO DO: remove following two lines, because not elegant
 # include<stdbool.h>
+# include<stdint.h>
 
 //Struct
-
 typedef struct s_arr
 {
 	void	*data;
-	int	length;
-	int	maxsize;
-	int	stepsize;
+	int		length;
+	int		maxsize;
+	int		stepsize;
 }	t_arr;
 
 //Construction
@@ -43,7 +52,7 @@ void	*arr_pop(void *self);
 
 void	*arr_bottom(void *self, int index);
 void	*arr_top(void *self, int index);
-int	arr_has(void *self, void *item);
+int		arr_has(void *self, void *item);
 
 // Write Operations
 bool	arr_write_at(void *self, int index, void *item);
@@ -53,7 +62,7 @@ bool	arr_push(void *self, void *item);
 bool	arr_push_int(void *self, int data);
 //bool	arr_write_int(void *self, int data);
 //int	arr_pop_int(void *self);
-int	arr_read_int_at(void *self, int index);
+int		arr_read_int_at(void *self, int index);
 void	*arr_zip(void *self, void *target, void *(*zip)());
 void	*arr_zip_int(void *self, void *target, int (*zip)());
 //int	arr_sum(void *self);
@@ -62,9 +71,9 @@ void	*arr_zip_int(void *self, void *target, int (*zip)());
 //int	arr_max_index(void *self);
 
 //Getters
-int	arr_length(void *self);
-int	arr_maxsize(void *self);
-int	arr_stepsize(void *self);
+int		arr_length(void *self);
+int		arr_maxsize(void *self);
+int		arr_stepsize(void *self);
 void	**arr_data(void *self);
 
 // Setters
@@ -85,12 +94,14 @@ void	arr_strchr(void *self, char *string, char search);
 void	arr_swap(void *self);
 void	arr_rotate(void *self);
 void	arr_rev_rotate(void *self);
-int	arr_int_max(void *self);
-int	arr_int_min(void *self);
+int		arr_int_max(void *self);
+int		arr_int_min(void *self);
+
 // Permutations
 void	arr_reverse(void *self);
 void	arr_sort(void *self);
-#include<stdint.h>
+
 //Misc
 void	**arr_copy_data(void *self);
+
 #endif

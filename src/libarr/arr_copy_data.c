@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   arr_copy_data.c                                         4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/11 18:08:01 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/11 18:08:26 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libarr.h"
 #include"libft.h"
 
@@ -6,8 +18,8 @@
 void	**arr_copy_data(void *self)
 {
 	void	**data;
-	int	max_size;
-	int	i;
+	int		max_size;
+	int		i;
 
 	max_size = arr_length(self);
 	max_size /= arr_stepsize(self);

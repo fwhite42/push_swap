@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   solver_compute_median.c                                 4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/11 04:27:03 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/11 04:27:21 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libarr.h"
 #include"liberror.h"
 #include<stddef.h>
 
 int	solver_compute_median(void *stack)
 {
-	int	nbr;
+	int		nbr;
 	void	*copy;
 
 	if (arr_length(stack) < 1)

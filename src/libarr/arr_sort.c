@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   arr_sort.c                                              4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/11 16:27:09 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/11 16:28:40 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libarr.h"
 #include<stdint.h>
 
@@ -13,7 +25,7 @@ void	arr_sort(void *self)
 static void	recursion(void *self, int length)
 {
 	intptr_t	*tab;
-	int		i;
+	int			i;
 
 	tab = (intptr_t *)arr_data(self);
 	i = 0;

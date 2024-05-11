@@ -34,22 +34,15 @@ check:
 	@echo Object Files:
 	@echo $(OBJECTS)
 
-###############################################################################
-# Implicit Rules
-###############################################################################
-
-## Implicit rules for compiling C programs
-CC		:= gcc
+CC			:= gcc
 CFLAGS		:= -Wall -Werror -Wextra
 CPPFLAGS	:= -I$(includedir) -I$(CURDIR)	
 
-## Look inside $(includedir) for header files (if $(includedir) is defined)
 ifdef (includedir)
 CPPFLAGS	+= -I$(includedir)
 endif
 
-## Implicit rules for archiving objects
-AR		:= ar
+AR			:= ar
 ARFLAGS		:= -rcs
 
 ###############################################################################

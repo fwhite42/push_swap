@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   elevator_execute.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fwhite42 <FUCK THE NORM>                   +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/05 17:59:46 by fwhite42          #+#    #+#             */
-/*   Updated: 2024/05/06 13:23:23 by fwhite42         ###   ########.fr       */
+/*                                                                            */
+/*   elevator_execute.c                                      4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/07 14:14:21 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/11 16:29:56 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	_execute(int op1, int op2, int n, void *game)
 	else
 		op = op1;
 	while (n--)
-		game_execute(game, op);	
+		game_execute(game, op);
 }
 
 void	elevator_execute(void *self, void *game)

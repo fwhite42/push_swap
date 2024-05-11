@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   arr_printf.c                                            4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/11 18:00:37 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/11 18:01:23 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libarr.h"
 #include"libftprintf.h"
 #include"libft.h"
@@ -15,7 +27,7 @@ static void	print_integers(void *self)
 {
 	int	i;
 	int	data;
-	
+
 	i = 0;
 	ft_printf("<");
 	if (arr_length(self) > 0)
@@ -35,7 +47,7 @@ static void	print_integers(void *self)
 
 static void	print_pointers(void *self)
 {
-	int	i;
+	int		i;
 	void	*data;
 
 	i = 0;
@@ -58,7 +70,7 @@ static void	print_pointers(void *self)
 void	arr_printf(void *self, char *flags)
 {
 	if (check_flag(flags, 'I'))
-		return arr_printf(self, "pami");
+		return (arr_printf(self, "pami"));
 	if (check_flag(flags, 'p'))
 		ft_printf("(%p)\t", self);
 	if (check_flag(flags, 'a'))

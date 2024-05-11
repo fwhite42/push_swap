@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   error_log.c                                             4 2              */
+/*   arr_set_stepsize.c                                      4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/02 03:35:55 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/02 03:53:17 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/11 18:54:45 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/11 18:54:45 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"liberror.h"
+#include"libarr.h"
 
-void	error_log(char *message, int value)
+void	arr_set_stepsize(void *self, int stepsize)
 {
-	t_error	error;
-
-	error_set_message(&error, message);
-	error_set_value(&error, value);
-	error_print(&error);
+	((t_arr *)self)->stepsize = stepsize;
 }

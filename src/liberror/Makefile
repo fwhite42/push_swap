@@ -1,9 +1,9 @@
+
 define METHODS
-	set_message
-	set_value
-	create
-	print
-	log
+	set_message	\
+	set_value	\
+	print		\
+	log			\
 	fatal
 endef
 

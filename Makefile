@@ -1,16 +1,6 @@
-# Default library path
-MK	?= mk
+MK				?= mk
+NAME			:= push_swap
+RARIES			:= ft ftprintf error arr game elevator solver
 
-NAME	:= push_swap
-
-define RARIES
-	ft
-	ftprintf
-	error
-	arr
-	game
-	elevator
-	solver
-endef
-
-include $(MK)/core.mk
+include			$(MK)/core.mk
+.DEFAULT_GOAL	:= all
