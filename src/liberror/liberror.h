@@ -6,14 +6,14 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/02 03:28:20 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/08 10:40:50 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/12 13:37:51 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBERROR_H
 # define LIBERROR_H
 
-# define ERROR_FOOTER	"\x1B[0m\n"
+# define ERROR_FOOTER	"\x1B[0m"
 # define ERROR_STYLE	"\x1B[31m\x1B[1m\x1B[5m"
 # define ERROR_HEADER	"Error\n"
 

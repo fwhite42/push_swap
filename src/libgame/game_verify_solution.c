@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   error_print.c                                           4 2              */
+/*   game_verify_solution.c                                  4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/02 03:41:09 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/13 14:39:43 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/13 14:39:02 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/13 14:39:03 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include"libgame.h"
 #include"liberror.h"
-#include"libft.h"
-#include"libftprintf.h"
+#include"libarr.h"
 
-void	error_print(void *self)
+int	game_verify_solution(t_game *game)
 {
-	t_error	*error;
-	char	*itemsym;
+	int	i;
+	int	x0;
+	int	x1;
 
-	itemsym = "";
-	error = (t_error *)self;
-	ft_printf(ERROR_STYLE);
-	ft_putstr_fd(ERROR_HEADER, 2);
-	ft_printf("%s[  Value  ]\t %i\n", itemsym, error->value);
-	ft_printf("%s[ Message ]\t %s\n", itemsym, error->message);
-	ft_printf(ERROR_FOOTER);
+	i = 1;
+	if (arr_length(game_stack(game, b)) != 0)
+	{
+		return (0);
+	}
+	while (i < arr_length(game_stack(game, a)))
+	{
+		x0 = game_read_at(game, a, i - 1);
+		x1 = game_read_at(game, a, i);
+		if (x0 < x1)
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

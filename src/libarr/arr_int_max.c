@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/11 18:10:15 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/11 18:11:32 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/13 13:31:06 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	arr_int_max(void *self)
 {
 	int	max;
 
-	max = 0;
+	max = arr_read_int_at(self, 0);
 	arr_foreach(self, update, &max);
 	return (max);
 }

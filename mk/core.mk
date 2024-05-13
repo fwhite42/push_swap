@@ -28,19 +28,25 @@ $(MAKEABLE_DIRS):%:
 .SECONDEXPANSION:
 $(HEADERS):$(includedir)/%.h: $(srcdir)/$$*/$$*.h $(includedir)
 	cp $(srcdir)/$*/$*.h $(includedir)/$*.h
+define archive_path
+$(srcdir)/$1/$1.a
+endef
 
-$(LIBRARY_FILES):$(libdir)/%.a: $(srcdir)/%/Makefile $(libdir) $(HEADERS)
-	$(MAKE) -C $(dir $<) includedir=$(includedir)
-	cp $(srcdir)/$*/$*.a $(libdir)/$*.a
+SLIB	:= $(foreach lib, $(LIBRARIES), $(call archive_path,$(lib)))
+
+.PHONY: $(SLIB)
+$(SLIB):%: $(srcdir)
+	$(MAKE) -C $(dir $@) includedir=$(includedir)
+
+$(LIBRARY_FILES):$(libdir)/%.a: $(HEADERS) $(call archive_path,$$*) | $(libdir)
+	install -C -v -m 644 $(srcdir)/$*/$*.a $(libdir)/
 
 CC			:= gcc
 CFLAGS		:= -Wall -Werror -Wextra
 CPPFLAGS	:= -I$(includedir)
 vpath %.a	$(libdir)
 
-$(NAME)		:$(NAME).c $(LINK_LIBRARIES)
-	@echo FUCK
-	@echo $(LINK_LIBRARIES)
+$(NAME)		:$(NAME).c $(LIBRARY_FILES)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ $(LINK_LIBRARIES) -o $@
 
 # Phonies

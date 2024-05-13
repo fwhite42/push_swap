@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/11 05:41:48 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/11 13:24:59 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/13 14:39:25 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,28 @@
 #include"liberror.h"
 #include"libftprintf.h"
 
-void	verify_is_number(char *nbr)
+static inline void	verify_is_number(char *nbr)
 {
-	char	*valid;
-
-	valid = "01234567890";
-	if (ft_strlen(nbr) > 1 && ft_atoi(nbr) == 0)
-		error_fatal("Int Overflow", -42);
+	if (ft_strlen(nbr) == 0)
+		error_fatal("Found some empty string in the arguments", -42);
 	if (*nbr == '+' || *nbr == '-')
 		nbr++;
+	if (ft_strlen(nbr) == 0)
+		error_fatal("Found some empty string in the arguments", -42);
 	while (*nbr)
 	{
-		if (ft_strchr(valid, *(nbr++)) == NULL)
-			error_fatal("Arg must be a list of int. Received string", -42);
+		if (!ft_isdigit(*(nbr++)))
+			error_fatal("Found forbidden characters in the arguments", -42);
 	}
 }
 
-void	verify_doubles(void *arr)
+static inline void	verify_overflow(char *nbr)
+{
+	if (ft_strlen(nbr) > 1 && ft_atoi(nbr) == 0)
+		error_fatal("Provided arguments will overflow", -42);
+}
+
+static inline void	verify_doubles(void *arr)
 {
 	void	*copy;
 	int		item;
@@ -44,7 +49,7 @@ void	verify_doubles(void *arr)
 		item = (int)((intptr_t) arr_pop(copy));
 		if (arr_read_int_at(copy, -1) == item)
 		{
-			error_fatal("Arg cannot contain doubles", 0);
+			error_fatal("Found some doubles in the arguments", 0);
 		}
 	}
 	arr_destroy(copy, NULL, NULL);
@@ -57,19 +62,21 @@ void	game_init(void *self, int ac, char **av)
 	char	**nbrs;
 
 	i = 1;
-	j = 0;
 	while (i < ac)
 	{
+		j = 0;
 		nbrs = ft_split(av[i], ' ');
+		if (i == 1 && nbrs[0] == NULL)
+			error_fatal("First arguments looks like the empty string", -42);
 		while (nbrs[j])
 		{
 			verify_is_number(nbrs[j]);
+			verify_overflow(nbrs[j]);
 			arr_push_int(game_stack(self, a), ft_atoi(nbrs[j]));
 			free(nbrs[j]);
 			j++;
 		}
 		free(nbrs);
-		j = 0;
 		i++;
 	}
 	verify_doubles(game_stack(self, a));

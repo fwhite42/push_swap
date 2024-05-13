@@ -67,6 +67,8 @@ re: fclean all
 $(NAME): $(ARCHIVE)
 
 # The command to generate the archive is simply "make re"
+$(OBJECTS):%.o:%.c
+
 $(ARCHIVE): $(ARCHIVE)($(OBJECTS))
 
 .PHONY: clean
