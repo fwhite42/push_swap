@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/11 05:41:48 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/13 14:39:25 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/28 13:37:04 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ static inline void	verify_is_number(char *nbr)
 			error_fatal("Found forbidden characters in the arguments", -42);
 	}
 }
-
 static inline void	verify_overflow(char *nbr)
 {
+	if (ft_strlen(nbr) > 1)
+	{
+		while (*nbr == '0' && ft_strlen(nbr) > 1)
+			nbr++;
+	}
 	if (ft_strlen(nbr) > 1 && ft_atoi(nbr) == 0)
 		error_fatal("Provided arguments will overflow", -42);
 }
